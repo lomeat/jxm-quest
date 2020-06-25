@@ -5,7 +5,7 @@
   let isRightCode = true;
   let isVisible = true;
 
-  $: if (value === "p4s1t0") {
+  $: if (value === "p4s1t0" || value === "P4s1t0" || value === "P4S1T0") {
     console.log("good");
     isRightCode = true;
     isVisible = true;
