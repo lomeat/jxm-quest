@@ -1,5 +1,11 @@
 <script>
-  export let value;
+  let value = "";
+
+  $: if (value === "pasito") {
+    console.log("You are good");
+  } else {
+    console.log("BAAD");
+  }
 </script>
 
 <h1>
@@ -7,7 +13,7 @@
   <br />
   Введи сюда код:
 </h1>
-<input type="text" id="code" />
+<input type="text" id="code" bind:value />
 
 <style lang="scss">
   :global(body) {
