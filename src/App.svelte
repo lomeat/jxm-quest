@@ -28,8 +28,11 @@
 <input type="text" id="code" bind:value />
 
 {#if isRightCode}
-  <div class="message" style="background: #2ed573;">
-    <h2 transition:fade>
+  <div
+    transition:fade={{ delay: 500 }}
+    class="message"
+    style="background: #2ed573;">
+    <h2 transition:fade={{ delay: 1000 }}>
       Молодец!
       <br />
       <br />
