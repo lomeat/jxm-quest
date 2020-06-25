@@ -5,7 +5,7 @@
   let isRightCode = true;
   let isVisible = true;
 
-  $: if (value === "pasito") {
+  $: if (value === "p@$1to") {
     console.log("good");
     isRightCode = true;
     isVisible = true;
@@ -56,7 +56,15 @@
       <h2 transition:fade>
         Не пытайся угадать :D
         <br />
-        А лучше собери все части кода и введи верный
+        <br />
+        <br />
+        А лучше пройди
+        <br />
+        квест до конца,
+        <br />
+        собери все части кода
+        <br />
+        и сразу введи верный
       </h2>
     </div>
   {/if}
