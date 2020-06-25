@@ -5,7 +5,7 @@
   let isRightCode = true;
   let isVisible = true;
 
-  $: if (value === "p@$1to") {
+  $: if (value === "p4s1t0") {
     console.log("good");
     isRightCode = true;
     isVisible = true;
