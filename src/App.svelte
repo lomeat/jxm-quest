@@ -1,13 +1,22 @@
 <script>
+  import { fade } from "svelte/transition";
+
   let value = "";
-  let isRightCode = false;
+  let isRightCode = true;
+  let isVisible = true;
 
   $: if (value === "pasito") {
     console.log("good");
     isRightCode = true;
+    isVisible = true;
   } else {
     console.log("bad");
     isRightCode = false;
+    if (value.length >= 6) {
+      isVisible = true;
+    } else {
+      isVisible = false;
+    }
   }
 </script>
 
@@ -17,11 +26,39 @@
   Введи сюда код:
 </h1>
 <input type="text" id="code" bind:value />
+
 {#if isRightCode}
-  <h2>Молодец!</h2>
+  <div class="message" style="background: #2ed573;">
+    <h2 transition:fade>
+      Молодец!
+      <br />
+      <br />
+      Поздравляю
+      <br />
+      с прохождением квеста!
+      <br />
+      Ты успешно собрала все части
+      <br />
+      кода и теперь тебя ждет
+      <br />
+      <br />
+      ГЛАВНЫЙ ПРИЗ
+      <br />
+      <br />
+      Отправь мне скриншот
+      <br />
+      этого экрана
+    </h2>
+  </div>
 {:else}
-  {#if value.length >= 6}
-    <h2>Не пытайся угадать :D</h2>
+  {#if isVisible}
+    <div class="message" style="background: #ff4757;">
+      <h2 transition:fade>
+        Не пытайся угадать :D
+        <br />
+        А лучше собери все части кода и введи верный
+      </h2>
+    </div>
   {/if}
 {/if}
 
@@ -56,6 +93,22 @@
     font-weight: bold;
     text-transform: uppercase;
     width: 200px;
+    text-align: center;
+  }
+
+  .message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h2 {
+    color: white;
     text-align: center;
   }
 </style>
