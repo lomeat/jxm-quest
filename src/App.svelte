@@ -1,10 +1,13 @@
 <script>
   let value = "";
+  let isRightCode = false;
 
   $: if (value === "pasito") {
-    console.log("You are good");
+    console.log("good");
+    isRightCode = true;
   } else {
-    console.log("BAAD");
+    console.log("bad");
+    isRightCode = false;
   }
 </script>
 
@@ -14,6 +17,13 @@
   Введи сюда код:
 </h1>
 <input type="text" id="code" bind:value />
+{#if isRightCode}
+  <h2>Молодец!</h2>
+{:else}
+  {#if value.length >= 6}
+    <h2>Не пытайся угадать :D</h2>
+  {/if}
+{/if}
 
 <style lang="scss">
   :global(body) {
